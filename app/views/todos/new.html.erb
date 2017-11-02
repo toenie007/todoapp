@@ -1,0 +1,28 @@
+<h1>Create a new todo</h1>
+
+<% if @todo.errors.any? %>
+  <h2>The following errors prevented the todo list from beings saved:</h2>
+  <ul>
+    <% @todo.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @todo do |x|%>
+
+  <p>
+    <%= x.label :name %></br>
+    <%= x.text_field :name %>
+  </p>
+  
+  <p>
+    <%= x.label :description %> </br> 
+    <%= x.text_area :description %>
+  </p>
+  
+  <p>
+    <%= x.submit %>
+  </p>
+
+<% end %>
